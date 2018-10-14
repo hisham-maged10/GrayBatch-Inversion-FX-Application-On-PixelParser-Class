@@ -40,30 +40,30 @@ public class PixelParser
 	}
 	private Image getImage(String str)
 	{
-		if(!(str.endsWith(".jpg") || str.endsWith(".png")) || !(new File(str).isFile())) throw new InvalidImageFormatException("Please load a jpg or png format only!");
-		if(str.contains(":"))str=changeToRelativePath(str);
+		if(!(str.endsWith(".jpg") || str.endsWith(".png") || str.endsWith(".PNG") || str.endsWith(".JPG")) || !(new File(str).isFile())) throw new InvalidImageFormatException("Please load a jpg or png format only!");
+		//if(str.contains(":"))str=changeToRelativePath(str);
 		imgLocation=new File(str);
-		Image img=new Image(str);
+		Image img=new Image("file:///"+str);
 		return img;
 	}
 	//overload
 	private Image getImage(File imgFile)
 	{
 		String str=imgFile.getPath();
-		if(!(str.endsWith(".jpg") || str.endsWith(".png")) || !(imgFile.isFile())) throw new InvalidImageFormatException("Please load a jpg or png format only!");
-		if(str.contains(":"))str=changeToRelativePath(str);
+		if(!(str.endsWith(".jpg") || str.endsWith(".png") || str.endsWith(".PNG") || str.endsWith(".JPG")) || !(new File(str).isFile())) throw new InvalidImageFormatException("Please load a jpg or png format only!");
+		//if(str.contains(":"))str=changeToRelativePath(str);
 		imgLocation=new File(str);
-		Image img=new Image(str);
+		Image img=new Image("file:///"+str);
 		return img;
 	}
 	//overload
 	private Image getImage()
 	{
 		String str=getFile().getPath();
-		if(!(str.endsWith(".jpg") || str.endsWith(".png")) || !(new File(str).isFile())) throw new InvalidImageFormatException("Please load a jpg or png format only!");
-		if(str.contains(":"))str=changeToRelativePath(str);
+		if(!(str.endsWith(".jpg") || str.endsWith(".png") || str.endsWith(".PNG") || str.endsWith(".JPG")) || !(new File(str).isFile())) throw new InvalidImageFormatException("Please load a jpg or png format only!");
+		//if(str.contains(":"))str=changeToRelativePath(str);
 		imgLocation=new File(str);
-		Image img=new Image(str);
+		Image img=new Image("file:///"+str);
 		return img;
 	}
 	private String changeToRelativePath(String str)
